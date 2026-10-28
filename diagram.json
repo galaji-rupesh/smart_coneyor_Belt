@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Student Project - Smart Conveyor Belt",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -37.8, "left": 9, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic",
+      "top": -209.7,
+      "left": 197.5,
+      "attrs": { "distance": "137" }
+    },
+    { "type": "wokwi-servo", "id": "servo", "top": 17.2, "left": 326.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "greenLed",
+      "top": -186,
+      "left": -73,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "greenRes",
+      "top": -53.65,
+      "left": -86.4,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "redLed",
+      "top": -186,
+      "left": -5.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "redRes",
+      "top": -91.2,
+      "left": -38.95,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": -189.6, "left": 97.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:7", "ultrasonic:TRIG", "green", [] ],
+    [ "uno:6", "ultrasonic:ECHO", "blue", [] ],
+    [ "uno:5V", "ultrasonic:VCC", "red", [] ],
+    [ "uno:GND.1", "ultrasonic:GND", "black", [] ],
+    [ "uno:9", "servo:PWM", "orange", [] ],
+    [ "uno:5V", "servo:V+", "red", [] ],
+    [ "uno:GND.1", "servo:GND", "black", [] ],
+    [ "uno:4", "greenLed:A", "green", [] ],
+    [ "greenLed:C", "greenRes:1", "green", [] ],
+    [ "greenRes:2", "uno:GND.2", "black", [] ],
+    [ "uno:3", "redLed:A", "red", [] ],
+    [ "redLed:C", "redRes:1", "red", [] ],
+    [ "redRes:2", "uno:GND.2", "black", [] ],
+    [ "uno:5", "buzzer:1", "purple", [] ],
+    [ "uno:GND.2", "buzzer:2", "black", [] ]
+  ],
+  "dependencies": {}
+}
